@@ -33,6 +33,14 @@
 		</div>
 		<form action="/admin/board/list">
 			<div class="col-3" style="display: inline-block">
+				<select name="searchBoard" class="form-control">
+					<option value="">게시판선택</option>
+					<option value="notice"<c:out value="${(pageVO.searchBoard eq 'notice')?('selected'):('')}"/>>공지사항</option>
+					<option value="gallery"<c:out value="${(pageVO.searchBoard eq 'gallery')?('selected'):('')}"/>>갤러리</option>
+				</select>
+			</div>
+			
+			<div class="col-3" style="display: inline-block">
 				<select name="searchType" class="form-control">
 					<option value="all">전체</option>
 				</select>
@@ -68,12 +76,13 @@
 			<div class="card-body table-responsive p-0">
 				<table class="table table-hover text-nowrap">
 					<thead>
-						<tr>
+						<tr>						
 							<th>BNO</th>
 							<th>TITLE</th>
 							<th>WRITE</th>
 							<th>REGDATE</th>
 							<th>VIEWCNT</th>
+							<th>B_TYPE</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -82,11 +91,12 @@
 							<tr>
 								<td>${boardVO.bno}</td>
 								<td><a
-									href="/admin/board/view?bno=${boardVO.bno}&page=${pageVO.page}">${boardVO.title}</a></td>
+									href="/admin/board/view?bno=${boardVO.bno}&page=${pageVO.page}&searchBoard=${pageVO.searchBoard}">${boardVO.title}</a></td>
 								<td>${boardVO.writer}</td>
 								<td><span class="tag tag-success">
 								<fmt:formatDate pattern="yyyy년-MM월-dd일 HH:mm" value="${boardVO.regdate}"/></span></td>
 								<td><span class="updateViewCount">${boardVO.view_count}</span></td>
+								<td>${boardVO.bod_type}</td>
 								
 							</tr>
 						</c:forEach>

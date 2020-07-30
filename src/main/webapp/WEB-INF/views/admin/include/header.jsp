@@ -76,7 +76,7 @@ if('${msg}' !=""){
           <img src="/resources/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">User00          <span class="right badge badge-danger">Online</span>
+          <a href="#" class="d-block">${session_username}님       <span class="right badge badge-danger">Online</span>
           </a>
           
         </div>
@@ -106,10 +106,25 @@ if('${msg}' !=""){
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/admin/board/list" class="nav-link">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>게시판관리</p>
+                   <i class="right fas fa-angle-left"></i>
                 </a>
+              
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/admin/board/list?searchBoard=notice" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>공지사항</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/board/list?searchBoard=gallery" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>갤러리</p>
+                  </a>
+
               </li>
             </ul>
           </li>

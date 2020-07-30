@@ -32,7 +32,7 @@
 						</div>
 						<!-- /.card-header -->
 						<div class="card-body">
-							<form role="form" action="/admin/board/delete" method="post">
+							<form role="form" action="/admin/member/delete" method="post">
 								<div class="row">
 									<div class="col-sm-12">
 										<!-- text input -->
