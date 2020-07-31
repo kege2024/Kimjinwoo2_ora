@@ -71,10 +71,10 @@
 			<h2><b>환영합니다!!</b></h2>
 			<div class="about_box">
 				<ul class="place_list box_inner clear">
-				<c:forEach items="${boardList}" var="boardVO" varStatus="status">
+				<c:forEach items="${boardListGallery}" var="boardVO" varStatus="status">
 				<c:if test="${status.count <= 3}">	
 					<!-- <li><a href="#" onclick="$('.popup_base').css('height',$(document).height());$('.contact_pop').show();"> -->
-							<li><a href="/board/view?bno=${boardVO.bno}&page=1"> 
+							<li><a href="/board/view?bno=${boardVO.bno}&page=1&searchBoard=gallery"> 
 							<!-- 첨부파일 있을때 -->
 							<c:if test="${boardVO.files[0] != null}">
 							<c:set var="extName" value="${fn:split(boardVO.files[0],'.')}" />
@@ -115,10 +115,10 @@
 					<a href="#">여행지 관련정보 확인</a>
 				</p>
 				<div class="bbs_line">
-					<h3><a href="/board/list">NOTICE</a></h3>
+					<h3><a href="/board/list?searchBoard=notice">NOTICE</a></h3>
 					<ul class="notice_recent">
-					<c:forEach items="${boardList}" var="boardVO" varStatus="status">
-						<li><a href="/board/view?bno=${boardVO.bno}&page=1">${boardVO.title}</a></li>
+					<c:forEach items="${boardListNotice}" var="boardVO" varStatus="status">
+						<li><a href="/board/view?bno=${boardVO.bno}&page=1&searchBoard=notice">${boardVO.title}</a></li>
 					</c:forEach>
 					</ul>
 				</div>

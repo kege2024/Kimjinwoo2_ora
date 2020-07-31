@@ -98,7 +98,8 @@ if('${msg}' !=""){
 					<li><a href="/board/list" class="openAll2">고객센터</a>
 				        <div class="gnb_depth gnb_depth2_2">
                             <ul class="submenu_list">
-                                <li><a href="/board/list"  style="font-size:13px;">공지사항</a></li>
+                                <li><a href="/board/list?searchBoard=notice"  style="font-size:13px;">공지사항</a></li>
+                                <li><a href="/board/list?searchBoard=gallery"  style="font-size:13px;">갤러리</a></li>
                             </ul>
                         </div>
 					</li>
