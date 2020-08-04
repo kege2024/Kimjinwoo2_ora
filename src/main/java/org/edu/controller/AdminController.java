@@ -17,6 +17,7 @@ import javax.validation.Valid;
 import org.edu.service.IF_BoardService;
 import org.edu.service.IF_MemberService;
 import org.edu.util.FileDataUtil;
+import org.edu.vo.BoardTypeVO;
 import org.edu.vo.BoardVO;
 import org.edu.vo.MemberVO;
 import org.edu.vo.PageVO;
@@ -45,7 +46,75 @@ public class AdminController {
 	
 	@Inject
 	private FileDataUtil fileDataUtil;
+
+	/**
+	 * 게시판생성 insert 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/write", method = RequestMethod.GET)
+	public String bodTypeInsert(Locale locale, Model model) throws Exception {
+		return "admin/bodtype/bodtype_insert";
+	}
 	
+	/**
+	 * 게시판생성 Insert 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/write", method = RequestMethod.POST)
+	public String bodTypeInsert(BoardTypeVO boardTypeVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		boardService.insertBoardType(boardTypeVO);
+		rdat.addFlashAttribute("msg", "등록");
+		return "redirect:/admin/bodtype/list";
+	}
+	
+	
+
+	/**
+	 * 게시판생성 수정 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/update", method = RequestMethod.GET)
+	public String bodTypeUpdate(@RequestParam("bod_type") String bod_type, Locale locale, Model model) throws Exception {
+		BoardTypeVO boardTypeVO = boardService.viewBoardType(bod_type);
+		model.addAttribute("bodTypeVO", boardTypeVO);
+		// {'notice','공지사항',1}
+		return "admin/bodtype/bodtype_update";
+	}
+	
+	/**
+	 * 게시판생성 수정 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/update", method = RequestMethod.POST)
+	public String bodTypeUpdate(BoardTypeVO boardTypeVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		boardService.updateBoardType(boardTypeVO);
+		rdat.addFlashAttribute("msg", "수정");
+		return "redirect:/admin/bodtype/list";
+	}
+	
+	/**
+	 * 게시판생성 삭제 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/delete", method = RequestMethod.POST)
+	public String bodTypeDelete(BoardTypeVO boardTypeVO, Locale locale, RedirectAttributes rdat) throws Exception {
+		boardService.deleteBoardType(boardTypeVO.getBod_type());
+		rdat.addFlashAttribute("msg", "삭제");
+		return "redirect:/admin/bodtype/list";
+	}
+	
+	
+	/**
+	 * 게시판생성 리스트 입니다.
+	 * @throws Exception 
+	 */
+	@RequestMapping(value = "/bodtype/list", method = RequestMethod.GET)
+	public String bodTypeList(Locale locale, Model model) throws Exception {
+		List<BoardTypeVO> list = boardService.selectBoardType();
+		model.addAttribute("bodTypeList", list);
+
+		return "admin/bodtype/bodtype_list";
+	}
 	
 	
 	/**
