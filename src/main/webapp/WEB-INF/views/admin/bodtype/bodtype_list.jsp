@@ -20,7 +20,8 @@
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
-    
+      
+</div>
         <div class="col-12">
             <div class="card">
               <div class="card-header">
@@ -38,6 +39,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
+              
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
@@ -59,6 +61,7 @@
                </td>
            
                 </table>
+              
               </div>
               <!-- /.card-body -->
             </div>

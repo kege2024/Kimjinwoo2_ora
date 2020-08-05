@@ -48,6 +48,38 @@ public class AdminController {
 	private FileDataUtil fileDataUtil;
 
 	/**
+	 * 게시판아이디 체크 RestAPI 입니다.
+	 * @throws Exception @ResponseBody 사용됨
+	 */
+	@RequestMapping(value = "/member/idcheck", method = RequestMethod.GET)
+	@ResponseBody
+	public int idCheck(@RequestParam("user_id") String user_id) throws Exception {
+		MemberVO memberVO = memberService.viewMember(user_id);
+		int check = 0;
+		if(memberVO!=null) {	
+			check = 1;
+		}
+		return check;
+	}
+	
+	
+	/**
+	 * 게시판아이디 체크 RestAPI 입니다.
+	 * @throws Exception @ResponseBody 사용됨
+	 */
+	@RequestMapping(value = "/bodtype/bodtype_check", method = RequestMethod.GET)
+	@ResponseBody
+	public int bodTypeCheck(@RequestParam("bod_type") String bod_type) throws Exception {
+		BoardTypeVO boardTypeVO = boardService.viewBoardType(bod_type);
+		int check = 0;
+		if(boardTypeVO!=null) {	
+			check = 1;
+		}
+		return check;
+	}
+	
+	
+	/**
 	 * 게시판생성 insert 입니다.
 	 * @throws Exception 
 	 */
