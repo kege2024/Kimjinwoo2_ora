@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import javax.websocket.Session;
 
 import org.edu.service.IF_BoardService;
 import org.edu.service.IF_MemberService;
@@ -87,7 +88,7 @@ public class HomeController {
 		return "mypage/mypage_update";
 	}
 	@RequestMapping(value = "/mypage/update", method = RequestMethod.POST)
-	public String memberUpdate(MemberVO memberVO, Locale locale, RedirectAttributes rdat) throws Exception {
+	public String memberUpdate(MemberVO memberVO, Locale locale, RedirectAttributes rdat, HttpServletRequest request) throws Exception {
 		String new_pw = memberVO.getUser_pw();//예를 들면 1234
 		if(new_pw != "") {
 			//스프링 시큐리티 4.x BCryptPasswordEncoder 암호화 사용
@@ -97,6 +98,10 @@ public class HomeController {
 		}		
 		memberService.updateMember(memberVO);
 		rdat.addFlashAttribute("msg", "회원정보 수정");
+		//회원이름 세션변수 변경처리 session_username
+		HttpSession session = request.getSession();
+		session.setAttribute("session_username", memberVO.getUser_name());
+		
 		return "redirect:/mypage/update";
 	}
 	

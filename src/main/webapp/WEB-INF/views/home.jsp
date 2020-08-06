@@ -83,7 +83,7 @@
 							<!-- 첨부파일 안에 이이지 또는 이미지 아닐경우 -->
 							<c:choose>
 							<c:when test="${fn:containsIgnoreCase(extNameArray, ext)}">
-							<img src="/download?filename=${boardVO.files[0]}" title="첨부파일 이미지" style="width:100%;">
+							<img src="/image_preview?filename=${boardVO.files[0]}" title="첨부파일 이미지" style="width:100%;">
 							</c:when>
 							<c:otherwise>
 							<img class="img_topplace" src="/resources/home/img/p4.jpg" alt="첨부파일 이미지 없을때" />

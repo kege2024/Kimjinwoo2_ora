@@ -21,7 +21,7 @@
 		<div class="bodytext_area box_inner">
 			
 			<!-- appForm -->
-					<form action="/mypage/update" class="regForm" method="POST">
+					<form id="form_mypage" action="/mypage/update" class="regForm" method="POST">
 						<fieldset>
 							<legend>내정보 입력 양식</legend>
 							<ul class="reg_list">
@@ -70,7 +70,10 @@
 									</div>
 								</li>
 							</ul>
-							<p class="btn_line"><button class="btn_baseColor">등록</button></p>	
+							<p class="btn_line">
+							<button class="btn_baseColor" style="cursor:pointer">정보수정</button>
+							<button id="btn_delete" type="button" class="btn_baseColor" style="cursor:pointer">회원탈퇴</button>
+							</p>	 
 						</fieldset>
 					</form>
 					<!-- //appForm -->
@@ -80,4 +83,15 @@
 
 	</div>
 	<!-- //container -->
+	
+	<script>
+	$(document).ready(function(){ 
+		$("#btn_delete").click(function(){ 
+			if(confirm("정말로 탈퇴하시겠습니까")){
+				$("#form_mypage").attr("action", "/mypage/delete");
+				$("#form_mypage").submit();
+			}
+		});
+	});
+	</script>
 <%@ include file="../include/footer.jsp" %>
