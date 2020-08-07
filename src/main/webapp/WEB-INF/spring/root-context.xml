@@ -95,6 +95,30 @@
 		      value="classpath:mappers/**/*Mapper.xml"></property>
 	 	
 	</bean>
+	 <!-- memberServiceImpl클래스의 testJobMethod 실행 프로그램작업 -->
+	 <bean id="testJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+	 <!-- member 서비스 구현체의 클래스명을 ref로 참조 -->
+	 <property name="targetObject" ref="memberServiceImpl"></property>
+	 <!-- memberServiceImpl에서 주기적으로 실행될 메서드 지정 set -->
+	 <property name="targetMethod" value="testJobMethod"></property>
+	 <!-- 동시 실행 방지 -->
+	 <property name="concurrent" value="false"></property>
+	 </bean>
+	 <!-- testJob 아이디를 실행하는 스케줄 -->
+	 <bean id="testJobTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerFactoryBean">
+	 <property name="jobDetail" ref="testJob"></property>
+	 <!-- 톰캣 시작후 1분에 실행 (단위:밀리초)-->
+	 <property name="startDelay" value="8640000000"></property>
+	 <!-- 인터벌 변수값 set: 매 1분마다 testJob 아이디 실행 -->
+	 <property name="repeatInterval" value="8640000000"></property>	 
+	 </bean>
+	 <!-- 배치프로그램 실행 진입점 -->
+	 <bean id="testJobScheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+	 <property name="triggers">
+	 <!-- 위에서 설정한 트리거 등록 -->
+	 <list><ref bean="testJobTrigger"></ref></list>
+	 </property>
+	 </bean>
 	 <!-- 
 		...MyBatis에서 DAO를 이용하는 경우, SqlSessionTemplate라는 것을 이용해서 DAO를 구현함.
 		mybatis-spring에서 제공하는 SqlSessionTempalte객체는 기본적인 트랜잭션 관리나 쓰레드 처리의
@@ -117,4 +141,6 @@
 		<property name="dataSource" ref="dataSource"></property>
 	 </bean>
 	 <tx:annotation-driven />
+	 
+	
 </beans>

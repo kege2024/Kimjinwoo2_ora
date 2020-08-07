@@ -18,6 +18,7 @@ menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin:0; padding:0;
 }
+
  h1, h2, h3, h4, h5, h6 {font-weight:normal; font-size:inherit;}
 
  /* HTML5 display-role reset for older browsers */
@@ -126,7 +127,7 @@ hr {display:none;}
 .box_inner {margin:0 auto;}
 
 /* header */
-header {position:absolute; left:0; top:0; width:100%; height:113px; background:#F2F2F2; z-index:100;}
+header {position:absolute; left:0; top:0; width:100%; height:113px; background:black; z-index:100;}
 header .header_area {/*position:relative;*/}
 header .header_area h1 {float:left; padding:25px 0 0;}
 header .header_area h1 a {display:block; width:270px; height:71px; text-indent:-9999px; overflow:hidden; background:url(../img/main_logo.png) no-repeat;}
@@ -143,7 +144,7 @@ header .header_area .openMOgnb {display:none;}
 .header_cont .gnb li:last-child a {padding-right:0;}
 .header_cont .closePop {display:none;} 
 
-.gnb_depth {display:none;position:absolute; top:113px; width:138px; background:#F2F2F2;} 
+.gnb_depth {display:none;position:absolute; top:113px; width:138px; background:black;} 
 
 /* .gnb_depth2_1 .submenu_list {font-size:9px; color:pink;}
 .gnb_depth2_2 .submenu_list {font-size:9px; color:pink;}  */
@@ -624,4 +625,6 @@ font-family:'Nanum Gothic','나눔 고딕',sans-serif;
 font-weight:bold;
 color: #2E9AFE;
 }
+
+
 
