@@ -1,4 +1,4 @@
-2020-07-29 17:42:43,099  INFO [org.springframework.web.context.support.GenericWebApplicationContext] Closing org.springframework.web.context.support.GenericWebApplicationContext@ea1a8d5: startup date [Wed Jul 29 17:42:38 KST 2020]; root of context hierarchy
-2020-07-29 17:42:43,111 DEBUG [org.mybatis.spring.SqlSessionUtils] Creating a new SqlSession
-2020-07-29 17:42:43,112 DEBUG [org.mybatis.spring.SqlSessionUtils] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d63e694] was not registered for synchronization because synchronization is not active
-2020-07-29 17:42:43,112 DEBUG [org.mybatis.spring.SqlSessionUtils] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d63e694]
+2020-08-14 17:11:11,401  INFO [org.quartz.core.QuartzScheduler] Scheduler testJobScheduler_$_NON_CLUSTERED shutdown complete.
+2020-08-14 17:11:11,401 DEBUG [org.mybatis.spring.SqlSessionUtils] Creating a new SqlSession
+2020-08-14 17:11:11,401 DEBUG [org.mybatis.spring.SqlSessionUtils] SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55b3c123] was not registered for synchronization because synchronization is not active
+2020-08-14 17:11:11,401 DEBUG [org.mybatis.spring.SqlSessionUtils] Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55b3c123]
